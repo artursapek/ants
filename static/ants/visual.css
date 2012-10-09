@@ -1,0 +1,202 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+}
+
+div.field {
+  width: 100%;
+  height: 45%;
+  background: #eeeeee;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+div.halo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 11px;
+  height: 11px;
+  background: transparent;
+  z-index: 10;
+  margin-left: -6px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+div.halo:hover {
+  background: #59afda;
+}
+
+div.ant {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #59afda;
+  z-index: 11;
+  margin-left: 4px;
+  margin-top: 4px;
+  cursor: pointer;
+/* Uncomment for smooth motion in the bottom view (can cause bugs with rapid changing of viewport)
+ * -webkit-transition: all 0.05s ease-in-out; */
+}
+
+div.landmark {
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  z-index: 2000;
+  text-indent: 10px;
+  font-family: Arial;
+  color: #696969;
+  font-size: 14px;
+  line-height: 2;
+  display: none;
+}
+
+div#noon {
+  left: 50%;
+}
+
+div#\36 am {
+  left: 25%;
+}
+
+div#\36 pm {
+  left: 75%;
+}
+
+div#future {
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+  z-index: 100;
+  background: rgba(0,0,0,0.08);
+  background: #dadada;
+}
+
+div.alley { 
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  color: transparent;
+  left: 0px;
+  font-family: Arial;
+  font-size: 12px;
+  text-indent: 6px;
+  line-height: 0;
+  padding: 10px 0px;
+  margin-top: -10px;
+  z-index: 10;
+  background: rgba(255,255,255,0.6);
+}
+
+div.alley:hover, div.alley.visible {
+  color: #696969;
+}
+
+.field#bottom {
+  border-bottom: 2px solid #59afda;
+}
+
+div#focus {
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  background: #59afda;
+  z-index: 1;
+  border-bottom: 5px solid white;
+  border-top: 5px solid #eeeeee;
+  cursor: pointer;
+  left: 0%;
+  right: 95.83333334%;
+}
+
+div#focus:hover, div#focus.hover {
+  height: 14px;
+  border: none;
+  z-index: 2001;
+  margin-top: -1px;
+}
+
+div#focus div#resize-left {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 25%;
+  height: 100%;
+  cursor: col-resize;
+}
+
+div#focus div#resize-right {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 25%;
+  height: 100%;
+  cursor: col-resize;
+}
+
+div#focus-field {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0%;
+  right: 95.83333334%;
+  background: rgba(89,175,218,0.12);
+  z-index: 1;
+  display: none;
+}
+
+div.popup {
+  position: absolute;
+  background: white;
+  min-width: 200px;
+  min-height: 100px;
+  display: none;
+  cursor: default;
+  top: 11px;
+  left: 0px;
+}
+
+div.popup .timestamp {
+  font-family: "Arial";
+  font-size: 12px;
+  padding: 3px;
+  background: #4f4f4f;
+  color: #e7e7e7;
+}
+
+div.popup table {
+  font-family: "Arial";
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+div.popup table td {
+  padding: 5px;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+div.popup table td:first-child {
+  background: #cecece;
+  color: #000;
+}

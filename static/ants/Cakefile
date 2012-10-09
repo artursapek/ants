@@ -1,0 +1,25 @@
+fs     = require 'fs'
+{exec} = require 'child_process'
+
+app_files = ( b + '.coffee' for b in [ 'visual', 'plugins' ] )
+
+
+task 'build', 'Build project', ->
+    app_contents = new Array remaining = app_files.length
+    for file, index in app_files then do (file, index) ->
+        fs.readFile file, 'utf8', (err, file_contents) ->
+            throw err if err
+            app_contents[index] = file_contents
+            process() if --remaining is 0
+    process = ->
+        console.log 'Concatenating.'
+        fs.writeFile 'build.coffee', app_contents.join('\n\n'), 'utf8', (err) ->
+            throw err if err
+            exec 'coffee --compile build.coffee', (err, stdout, stderr) ->
+                throw err if err
+                console.log stdout + stderr
+                fs.unlink 'build.coffee', (err) ->
+                    throw err if err
+                    exec 'java -jar "/Users/artur/Useful/closure_compiler/compiler.jar" --js build.js --js_output_file build.min.js', (err, stdout, stderr) ->
+                        throw err if err
+                        console.log stdout + stderr

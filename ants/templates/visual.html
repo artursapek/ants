@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <title>Ants</title>
+  <link rel="stylesheet" href="/static/ants/visual.css" type="text/css" media="screen" charset="utf-8">
+  <!-- jQuery 1.8.0 is known to break Ants right now. Untested with 1.8.1+ -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="/static/ants/build.js" type="text/javascript" charset="utf-8"></script>
+  
+</head>
+<body>
+  <div class="field" id="day">
+
+    {% for i, alley in alleys.items %}
+    <div class="alley color{{ i }}" id="{{ i }}" style="top: {{ alley }}%">{{ i }}</div>
+    {% endfor %}
+
+    <div class="landmark" id="noon">12pm</div>
+    <div class="landmark" id="6am">6am</div>
+    <div class="landmark" id="6pm">6pm</div>
+
+    <div id="future"></div>
+    <div id="focus"><div id="resize-left"></div><div id="resize-right"></div></div>
+    <div id="focus-field"></div>
+  </div>
+
+  <div class="field" id="bottom">
+ 
+    {% for i, alley in alleys.items %}
+    <div class="alley" id="{{ i }}" style="top: {{ alley }}%">{{ i }}</div>
+    {% endfor %}
+  </div>
+  <footer><a href="https://github.com/artursapek/ants">ants v.0.1</a></footer>
+</body>
+</html>
