@@ -26,7 +26,7 @@ def visual(request, group):
 
   return render('visual.html', { 'alleys': alleys })
 
-def log(request, name, group, addtldata=None):
+def log_event(request, name, group, addtldata=None):
   event = Ant(name=name)
   # Save the user-agent for each event by default
   data = { 'ua': request.META['HTTP_USER_AGENT'] }

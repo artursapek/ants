@@ -18,7 +18,9 @@ getdata = () ->
     url: '/ants/update'
     dataType: 'json'
     data:
-      group: 'hearo'
+             # Change this if you log events under a different group name
+             # than "default," which the app comes preset with
+      group: 'default'
     success: (data) ->
       for id, ant of data
         # If we haven't yet, create the ant
