@@ -15,7 +15,6 @@ def ant(request, eventname, data={})
   # and which automatically logs the user's name and email if there is a user logged in.
   # Call this in your other views to log them. Each view should use a unique name
   # (perhaps the name of the view itself).
-  with request.user as user:
-    if not user.is_anonymous():
-      data['user'] = '%s %s (%s)' % (user.first_name, user.last_name, user.email)
+  if not request.user.is_anonymous():
+    data['user'] = '%s %s (%s)' % (request.user.first_name, request.user.last_name, request.user.email)
   log_event(request, eventname, 'default', data)
