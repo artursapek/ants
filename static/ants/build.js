@@ -9,9 +9,6 @@
       type: 'GET',
       url: '/ants/update',
       dataType: 'json',
-      data: {
-        group: 'hearo'
-      },
       success: function(data) {
         var $alley, $ant, $bottomclone, ant, id, _results;
         _results = [];

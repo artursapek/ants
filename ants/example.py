@@ -18,3 +18,7 @@ def ant(request, eventname, data={})
   if not request.user.is_anonymous():
     data['user'] = '%s %s (%s)' % (request.user.first_name, request.user.last_name, request.user.email)
   log_event(request, eventname, 'default', data)
+
+# Example urlpatterns
+(r'/ants/?', 'ants.views.visual', {'group': 'default'}),
+(r'/ants/update/?', 'ants.views.ajax', {'group': 'default'}),

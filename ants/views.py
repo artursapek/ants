@@ -53,9 +53,8 @@ def log_event(request, name, group, addtldata=None):
 
   return HttpResponse(status=200)
 
-def ajax(request):
-  G = request.GET
-  gr = Group.objects.get(name=G['group'])
+def ajax(request, group):
+  gr = Group.objects.get(name=group)
   data = {}
   for event in gr.today():
     data[event.id] = event.ajaxify()
