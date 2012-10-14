@@ -5,7 +5,13 @@ from utils import JSON
 from ants.models import Ant, Group
 
 def visual(request, group):
-  gr = Group.objects.get(name=group)
+  try:
+    gr = Group.objects.get(name=group)
+  except:
+    # If the timeline is visited before any events have been logged, make a blank new group
+    gr = Group(name=group)
+    gr.save()
+
   events = gr.today()
 
   # Figure out how many different events there are total
